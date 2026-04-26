@@ -1,11 +1,10 @@
 # Happy 20th birthday
-        
-               <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birthday Magic for Sis</title>
+    <title>Birthday Surprise!</title>
     <style>
         body, html {
             margin: 0;
@@ -13,14 +12,11 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background: #2e0854; /* Deep Purple */
-            font-family: 'Arial Rounded MT Bold', 'Helvetica', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: #2e0854;
+            font-family: 'Arial Rounded MT Bold', sans-serif;
         }
 
-        /* Shining Background */
+        /* Glittery Purple Shine Background */
         #glitterCanvas {
             position: fixed;
             top: 0;
@@ -28,87 +24,90 @@
             width: 100%;
             height: 100%;
             z-index: 1;
-            background: radial-gradient(circle at center, #6a0dad, #2e0854, #1a052e);
+            background: radial-gradient(circle at center, #5d0c91, #2e0854, #1a052e);
         }
 
-        .main-card {
-            position: relative;
+        .content-card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             z-index: 100;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(15px);
-            padding: 50px;
-            border-radius: 40px;
-            border: 3px solid rgba(255, 215, 0, 0.5);
-            box-shadow: 0 0 50px rgba(255, 0, 255, 0.3);
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(20px);
+            padding: 45px;
+            border-radius: 35px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
             text-align: center;
             color: white;
-            max-width: 80%;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+            width: 85%;
+            max-width: 480px;
         }
 
-        h1 { font-size: 3.5rem; text-shadow: 0 0 20px #fff, 0 0 30px #ff00ff; }
+        h1 { font-size: 2.5rem; text-shadow: 0 0 15px #ff00ff; }
         
         .btn {
-            padding: 15px 40px;
-            font-size: 1.5rem;
-            margin: 15px;
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            margin: 10px;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
             transition: 0.3s;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
         }
 
-        .btn-yes { background: linear-gradient(45deg, #ff4d6d, #ff758c); color: white; }
-        .btn-no { background: #888; color: white; }
-        .btn-enjoy { background: linear-gradient(45deg, #ffd700, #ffae00); color: #333; margin-top: 25px; }
+        .btn-yes { background: #ff4d6d; color: white; box-shadow: 0 0 15px #ff4d6d; }
+        .btn-no { background: #6c757d; color: white; }
+        .btn-enjoy { background: #ffd700; color: #333; margin-top: 20px; }
         
-        .btn:hover { transform: scale(1.1); box-shadow: 0 0 25px gold; }
+        .btn:hover { transform: scale(1.1); filter: brightness(1.2); }
 
-        /* Flowing Elements */
-        .magic-item {
+        /* Celebration Elements */
+        .celebration-item {
             position: absolute;
             top: -100px;
             z-index: 50;
             pointer-events: none;
-            animation: fall linear forwards;
-            filter: drop-shadow(0 0 10px white);
+            animation: fallDown linear forwards;
         }
 
-        @keyframes fall {
-            0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+        @keyframes fallDown {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
             10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(110vh) translateX(100px) rotate(720deg); opacity: 0; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0.8; }
         }
 
         .hidden { display: none; }
-        .signature { margin-top: 40px; font-size: 1.4rem; color: #ffb3c1; text-shadow: 0 0 5px black; }
+        .footer { margin-top: 35px; font-size: 1.3rem; color: #ffb3c1; }
+        .glow { text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff; }
     </style>
 </head>
 <body>
 
     <canvas id="glitterCanvas"></canvas>
 
-    <div class="main-card">
+    <div class="content-card">
         <div id="page1">
-            <h1>siblings forever????</h1>
-            <button class="btn btn-yes" onclick="showBirthday()">Yes!</button>
-            <button class="btn btn-no" onclick="showPretty()">No</button>
-            <h2 id="prettyText" style="color: #ffeb3b; margin-top: 20px;"></h2>
+            <h1 class="glow">siblings forever????</h1>
+            <button class="btn btn-yes" onclick="showBday()">Yes!</button>
+            <button class="btn btn-no" onclick="showPls()">No</button>
+            <p id="plsText" style="color: #ffd700; font-size: 1.5rem; margin-top: 20px; font-weight: bold;"></p>
         </div>
 
         <div id="page2" class="hidden">
             <h1 style="color: #ffd700;">happiest 20th birthday myyy darling sister💐💕</h1>
             
-            <div id="enjoyBox">
-                <button class="btn btn-enjoy" onclick="showMeToo()">are you enjoying this?</button>
+            <div id="enjoyWrap">
+                <button class="btn btn-enjoy" onclick="enjoyed()">are you enjoying this?</button>
             </div>
             
-            <h2 id="meToo" class="hidden" style="color: #00f2ff; font-size: 2.5rem; animation: pulse 1s infinite alternate;">me toooo sis🥳</h2>
+            <h2 id="meToo" class="hidden glow" style="color: #00f2ff; font-size: 2rem; margin-top: 20px;">me toooo sis🥳</h2>
 
-            <div class="signature">
-                with immense love from Akash and Tiya 💖💐💕
+            <div class="footer">
+                with immense love from <br>
+                <strong>Akash and Tiya 💖💐💕</strong>
             </div>
         </div>
     </div>
@@ -116,85 +115,78 @@
     <script>
         const canvas = document.getElementById('glitterCanvas');
         const ctx = canvas.getContext('2d');
-        let dots = [];
+        let glitters = [];
 
         function init() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            for(let i=0; i<200; i++) {
-                dots.push({
+            glitters = [];
+            for (let i = 0; i < 100; i++) {
+                glitters.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    r: Math.random() * 2 + 1,
-                    d: Math.random() * 200,
-                    v: Math.random() * 0.5 + 0.2
+                    size: Math.random() * 2 + 1,
+                    speed: Math.random() * 0.5 + 0.1,
+                    alpha: Math.random()
                 });
             }
         }
 
         function draw() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
-            dots.forEach(p => {
+            glitters.forEach(g => {
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.sin(Date.now() * 0.002 + g.alpha * 10)})`;
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.arc(g.x, g.y, g.size, 0, Math.PI * 2);
                 ctx.fill();
-                p.y += p.v;
-                if(p.y > canvas.height) p.y = -10;
+                g.y += g.speed;
+                if(g.y > canvas.height) g.y = -5;
             });
             requestAnimationFrame(draw);
         }
 
-        // CREATE TONS OF FLOWING STUFF
-        function createMagic() {
-            const container = document.body;
-            const items = ['🎈', '✨', '⭐', '🎊', '💖', '❤️', '🌟', '💎', '✨'];
-            const item = items[Math.floor(Math.random() * items.length)];
+        function createItem() {
+            const types = ['🎈', '🎊', '💖', '❤️', '🎈', '🎊'];
+            const item = document.createElement('div');
+            item.className = 'celebration-item';
+            item.innerText = types[Math.floor(Math.random() * types.length)];
             
-            const div = document.createElement('div');
-            div.className = 'magic-item';
-            div.innerText = item;
+            item.style.left = Math.random() * 100 + 'vw';
             
-            // Random horizontal start
-            div.style.left = Math.random() * 100 + 'vw';
+            let fontSize = Math.random() * 20 + 20;
+            if(item.innerText === '🎈') fontSize += 15;
+            item.style.fontSize = fontSize + 'px';
             
-            // Random size - balloons bigger
-            let size = Math.random() * 30 + 20;
-            if(item === '🎈') size += 20;
-            div.style.fontSize = size + 'px';
+            const duration = Math.random() * 3 + 4;
+            item.style.animationDuration = duration + 's';
             
-            // Random speed
-            const duration = Math.random() * 3 + 3;
-            div.style.animationDuration = duration + 's';
-
-            container.appendChild(div);
-
-            // Remove after animation
-            setTimeout(() => div.remove(), duration * 1000);
+            document.body.appendChild(item);
+            setTimeout(() => item.remove(), duration * 1000);
         }
 
-        // Spawn very frequently for "Alot of" effect
-        setInterval(createMagic, 80);
+        // High frequency for a rich "confetti and balloons" feel
+        setInterval(createItem, 120);
 
-        // Interaction Logic
-        function showPretty() {
-            document.getElementById('prettyText').innerText = "prweeeeety pls💖";
+        function showPls() {
+            document.getElementById('plsText').innerText = "prweeeeety pls💖";
         }
 
-        function showBirthday() {
+        function showBday() {
             document.getElementById('page1').classList.add('hidden');
             document.getElementById('page2').classList.remove('hidden');
         }
 
-        function showMeToo() {
-            document.getElementById('enjoyBox').classList.add('hidden');
+        function enjoyed() {
+            document.getElementById('enjoyWrap').classList.add('hidden');
             document.getElementById('meToo').classList.remove('hidden');
         }
 
+        window.addEventListener('resize', init);
         init();
         draw();
-        window.addEventListener('resize', init);
     </script>
 </body>
 </html>
 
+               
+            
