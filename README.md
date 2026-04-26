@@ -1,26 +1,26 @@
 # Happy 20th birthday
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Sis!</title>
     <style>
-        /* Base Styles */
+        /* Modern aesthetic inspired by the provided link */
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background-color: #2e0854; /* Deep Purple */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a052e; /* Very dark purple base */
+            font-family: 'Poppins', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        /* Sparkling Glitter Background */
+        /* Sparkling Glitter Canvas - Just like the website */
         #glitterCanvas {
             position: fixed;
             top: 0;
@@ -28,205 +28,186 @@
             width: 100%;
             height: 100%;
             z-index: 1;
-            background: radial-gradient(circle at center, #4b0082, #2e0854, #1a052e);
+            background: radial-gradient(circle at center, #4b0082, #1a052e);
         }
 
-        /* Glass Container (The Card) */
-        .container {
+        /* Glassmorphism Card Effect */
+        .glass-card {
             position: relative;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.1);
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(15px);
-            padding: 40px 30px;
-            border-radius: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
             text-align: center;
-            color: white;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
             width: 85%;
             max-width: 450px;
-            animation: fadeIn 1s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
+            transition: all 0.5s ease;
         }
 
         h1 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            font-weight: 300;
+            letter-spacing: 1px;
+            line-height: 1.4;
+            margin-bottom: 30px;
         }
 
-        /* Buttons Styling */
-        .btn-group {
-            margin-top: 25px;
+        /* Shining/Glow effect for the text */
+        .shimmer {
+            background: linear-gradient(to right, #ffffff 0, #f2a2ff 10%, #ffffff 20%);
+            background-position: 0;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s infinite linear;
+            background-size: 200% auto;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        /* Button Styling */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         button {
-            padding: 12px 28px;
-            font-size: 1.1rem;
-            margin: 10px;
-            border: none;
-            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
             cursor: pointer;
-            font-weight: 600;
+            font-size: 1rem;
             transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            backdrop-filter: blur(5px);
         }
-
-        .btn-yes { background: #ff4d6d; color: white; }
-        .btn-no { background: #6c757d; color: white; }
-        .btn-enjoy { background: #ffd700; color: #333; }
 
         button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            border-color: #f2a2ff;
         }
 
-        /* Balloons and Confetti Animation */
-        .falling-element {
-            position: absolute;
-            top: -100px;
-            z-index: 50;
-            pointer-events: none;
-            animation: fallDown linear forwards;
-        }
-
-        @keyframes fallDown {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            100% { transform: translateY(110vh) rotate(360deg); opacity: 0.7; }
-        }
-
-        /* Specific styles for elements */
-        .hidden { display: none; }
-        .pink-text { color: #ffb3c1; font-weight: bold; }
-        .gold-text { color: #ffd700; }
-        .footer-note {
-            margin-top: 30px;
+        #pretty-msg {
+            margin-top: 20px;
+            color: #f2a2ff;
             font-style: italic;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #ffc2d1;
+            height: 24px;
         }
 
-        #plsDisplay {
-            margin-top: 15px;
-            font-size: 1.4rem;
-            color: #ffeb3b;
-            font-weight: bold;
+        .hidden { display: none; }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
         }
+
+        strong { color: #f2a2ff; }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <canvas id="glitterCanvas"></canvas>
 
-    <div id="page1" class="container">
-        <h1>siblings forever????</h1>
-        <div class="btn-group">
-            <button class="btn-yes" onclick="goToBirthday()">Yes!</button>
-            <button class="btn-no" onclick="showPls()">No</button>
+    <div id="page1" class="glass-card">
+        <h1 class="shimmer">siblings forever????</h1>
+        <div class="btn-container">
+            <button onclick="goToBirthday()">Yes</button>
+            <button onclick="showPretty()">No</button>
         </div>
-        <div id="plsDisplay"></div>
+        <div id="pretty-msg"></div>
     </div>
 
-    <div id="page2" class="container hidden">
-        <h1 class="gold-text">happiest 20th birthday myyy darling sister💐💕</h1>
+    <div id="page2" class="glass-card hidden">
+        <h1 class="shimmer">happiest 20th birthday myyy darling sister💐💕</h1>
         
-        <div id="enjoySection">
-            <p style="font-size: 1.2rem;">Hope you're having the best day!</p>
-            <button class="btn-enjoy" onclick="showMeToo()">are you enjoying this?</button>
+        <div id="enjoy-section">
+            <button onclick="showMeToo()">are you enjoying this?</button>
+        </div>
+        
+        <div id="me-too-msg" class="hidden">
+            <h2 style="color: #f2a2ff; font-weight: 300;">me toooo sis🥳</h2>
         </div>
 
-        <div id="meTooDisplay" class="hidden">
-            <h2 style="color: #00f2ff; font-size: 1.8rem; margin: 20px 0;">me toooo sis🥳</h2>
-        </div>
-
-        <div class="footer-note">
-            with immense love from <br>
-            <span style="font-size: 1.3rem;">Akash and Tiya 💖💐💕</span>
+        <div class="footer">
+            with immense love from<br>
+            <strong>Akash and Tiya 💖💐💕</strong>
         </div>
     </div>
 
     <script>
-        // --- Glitter Background Logic ---
         const canvas = document.getElementById('glitterCanvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
 
-        function initCanvas() {
+        function init() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             particles = [];
-            for (let i = 0; i < 150; i++) {
+            // Create the "Glitter" background
+            for (let i = 0; i < 200; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    size: Math.random() * 2 + 1,
-                    speed: Math.random() * 0.5 + 0.1,
-                    opacity: Math.random()
+                    size: Math.random() * 1.5 + 0.5,
+                    speedY: Math.random() * 0.4 + 0.1,
+                    opacity: Math.random(),
+                    blinkSpeed: Math.random() * 0.02 + 0.01
                 });
             }
         }
 
-        function animateGlitter() {
+        function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
             particles.forEach(p => {
-                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(Math.sin(Date.now() * 0.001 + p.opacity * 10))})`;
+                // Glitter twinkle effect
+                p.opacity += p.blinkSpeed;
+                if (p.opacity > 1 || p.opacity < 0.1) p.blinkSpeed *= -1;
+
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(p.opacity)})`;
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
                 ctx.fill();
-                p.y += p.speed;
-                if (p.y > canvas.height) p.y = -5;
+
+                // Slow downward drift
+                p.y += p.speedY;
+                if (p.y > canvas.height) p.y = -10;
             });
-            requestAnimationFrame(animateGlitter);
+            requestAnimationFrame(animate);
         }
 
-        // --- Celebration Elements (Balloons, Confetti, Hearts) ---
-        function createCelebration() {
-            const elements = ['🎈', '🎊', '💖', '❤️', '🎈', '🎉'];
-            const el = document.createElement('div');
-            el.className = 'falling-element';
-            el.innerText = elements[Math.floor(Math.random() * elements.length)];
-            
-            el.style.left = Math.random() * 100 + 'vw';
-            
-            let fontSize = Math.random() * 20 + 20;
-            if (el.innerText === '🎈') fontSize += 15; // Make balloons bigger
-            el.style.fontSize = fontSize + 'px';
-            
-            const duration = Math.random() * 3 + 4;
-            el.style.animationDuration = duration + 's';
-            
-            document.body.appendChild(el);
-            setTimeout(() => el.remove(), duration * 1000);
-        }
-
-        // --- Navigation Functions ---
-        function showPls() {
-            document.getElementById('plsDisplay').innerText = "prweeeeety pls💖";
+        function showPretty() {
+            document.getElementById('pretty-msg').innerText = "prweeeeety pls💖";
         }
 
         function goToBirthday() {
             document.getElementById('page1').classList.add('hidden');
             document.getElementById('page2').classList.remove('hidden');
-            // Increase celebration frequency on birthday page
-            setInterval(createCelebration, 150);
         }
 
         function showMeToo() {
-            document.getElementById('enjoySection').classList.add('hidden');
-            document.getElementById('meTooDisplay').classList.remove('hidden');
+            document.getElementById('enjoy-section').classList.add('hidden');
+            document.getElementById('me-too-msg').classList.remove('hidden');
         }
 
-        // --- Initialization ---
-        window.addEventListener('resize', initCanvas);
-        initCanvas();
-        animateGlitter();
-        setInterval(createCelebration, 300); // Start falling elements
+        window.addEventListener('resize', init);
+        init();
+        animate();
     </script>
 </body>
 </html>
+
+            
