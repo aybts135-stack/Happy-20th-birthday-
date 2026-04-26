@@ -1,206 +1,215 @@
 # Happy 20th birthday
-<!DOCTYPE html>
+      
+                                <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Sis!</title>
+    <title>Happiest Birthday!</title>
     <style>
-        /* Modern aesthetic inspired by the provided link */
-        body, html {
+        /* Modern, Clean Styles inspired by the link */
+        * {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background-color: #1a052e; /* Very dark purple base */
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            box-sizing: border-box;
         }
 
-        /* Sparkling Glitter Canvas - Just like the website */
-        #glitterCanvas {
+        body, html {
+            width: 100%;
+            height: 100%;
+            background-color: #1a052e; /* The deep dark purple from the site */
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Twinkling Sparkling Background */
+        #starCanvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: 1;
-            background: radial-gradient(circle at center, #4b0082, #1a052e);
+            background: radial-gradient(circle at center, #3d0a6b 0%, #1a052e 100%);
         }
 
-        /* Glassmorphism Card Effect */
-        .glass-card {
+        .wrapper {
             position: relative;
             z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* The Main Glass Card */
+        .glass-card {
             background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
-            padding: 40px;
+            padding: 40px 25px;
+            width: 100%;
+            max-width: 400px;
             text-align: center;
-            color: #ffffff;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            width: 85%;
-            max-width: 450px;
-            transition: all 0.5s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
-            font-weight: 300;
-            letter-spacing: 1px;
+            font-size: 1.8rem;
+            font-weight: 400;
             line-height: 1.4;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
-        /* Shining/Glow effect for the text */
-        .shimmer {
-            background: linear-gradient(to right, #ffffff 0, #f2a2ff 10%, #ffffff 20%);
-            background-position: 0;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine 3s infinite linear;
-            background-size: 200% auto;
+        .highlight-gold {
+            color: #ffd700;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 10px;
         }
 
-        @keyframes shine {
-            to { background-position: 200% center; }
-        }
-
-        /* Button Styling */
+        /* Buttons */
         .btn-container {
             display: flex;
             justify-content: center;
             gap: 15px;
-            flex-wrap: wrap;
+            margin-top: 25px;
         }
 
         button {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: transparent;
             color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 10px 25px;
+            border-radius: 5px;
             cursor: pointer;
             font-size: 1rem;
             transition: 0.3s;
-            backdrop-filter: blur(5px);
         }
 
         button:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-            border-color: #f2a2ff;
+            background: white;
+            color: #1a052e;
         }
 
         #pretty-msg {
             margin-top: 20px;
-            color: #f2a2ff;
-            font-style: italic;
-            height: 24px;
+            color: #ff85a1;
+            font-weight: 500;
+            min-height: 24px;
         }
 
         .hidden { display: none; }
 
+        /* Signature Section */
         .footer {
-            margin-top: 40px;
-            font-size: 0.9rem;
-            opacity: 0.8;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 30px;
             padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
-        strong { color: #f2a2ff; }
+        .pink-glow {
+            color: #ffb3c1;
+            text-shadow: 0 0 5px rgba(255, 179, 193, 0.5);
+        }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <canvas id="glitterCanvas"></canvas>
+    <canvas id="starCanvas"></canvas>
 
-    <div id="page1" class="glass-card">
-        <h1 class="shimmer">siblings forever????</h1>
-        <div class="btn-container">
-            <button onclick="goToBirthday()">Yes</button>
-            <button onclick="showPretty()">No</button>
-        </div>
-        <div id="pretty-msg"></div>
-    </div>
-
-    <div id="page2" class="glass-card hidden">
-        <h1 class="shimmer">happiest 20th birthday myyy darling sister💐💕</h1>
-        
-        <div id="enjoy-section">
-            <button onclick="showMeToo()">are you enjoying this?</button>
-        </div>
-        
-        <div id="me-too-msg" class="hidden">
-            <h2 style="color: #f2a2ff; font-weight: 300;">me toooo sis🥳</h2>
+    <div class="wrapper">
+        <div id="page1" class="glass-card">
+            <span class="highlight-gold">✨ FOREVER BOND ✨</span>
+            <h1>siblings forever????</h1>
+            <div class="btn-container">
+                <button onclick="nextPage()">Yes</button>
+                <button onclick="showPls()">No</button>
+            </div>
+            <div id="pretty-msg"></div>
         </div>
 
-        <div class="footer">
-            with immense love from<br>
-            <strong>Akash and Tiya 💖💐💕</strong>
+        <div id="page2" class="glass-card hidden">
+            <span class="highlight-gold">✨ CHEERS TO 20 YEARS ✨</span>
+            <h1>happiest 20th birthday myyy darling sister💐💕</h1>
+            
+            <div id="enjoy-prompt">
+                <button onclick="sayMeToo()" style="margin-top: 10px;">are you enjoying this?</button>
+            </div>
+
+            <div id="me-too-resp" class="hidden">
+                <h2 style="color: #00f2ff; margin: 15px 0;">me toooo sis🥳</h2>
+            </div>
+
+            <div class="footer">
+                with immense love from <br>
+                <span class="pink-glow">Akash and Tiya 💖💐💕</span>
+            </div>
         </div>
     </div>
 
     <script>
-        const canvas = document.getElementById('glitterCanvas');
+        // Sparkle/Glitter Background Animation
+        const canvas = document.getElementById('starCanvas');
         const ctx = canvas.getContext('2d');
-        let particles = [];
+        let stars = [];
 
         function init() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            particles = [];
-            // Create the "Glitter" background
-            for (let i = 0; i < 200; i++) {
-                particles.push({
+            stars = [];
+            for (let i = 0; i < 150; i++) {
+                stars.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    size: Math.random() * 1.5 + 0.5,
-                    speedY: Math.random() * 0.4 + 0.1,
+                    size: Math.random() * 1.5,
                     opacity: Math.random(),
-                    blinkSpeed: Math.random() * 0.02 + 0.01
+                    speed: Math.random() * 0.02 + 0.005
                 });
             }
         }
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            particles.forEach(p => {
-                // Glitter twinkle effect
-                p.opacity += p.blinkSpeed;
-                if (p.opacity > 1 || p.opacity < 0.1) p.blinkSpeed *= -1;
-
-                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(p.opacity)})`;
+            stars.forEach(s => {
+                s.opacity += s.speed;
+                if (s.opacity > 1 || s.opacity < 0) s.speed *= -1;
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(s.opacity)})`;
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
                 ctx.fill();
-
-                // Slow downward drift
-                p.y += p.speedY;
-                if (p.y > canvas.height) p.y = -10;
             });
             requestAnimationFrame(animate);
         }
 
-        function showPretty() {
+        // Logic
+        function showPls() {
             document.getElementById('pretty-msg').innerText = "prweeeeety pls💖";
         }
 
-        function goToBirthday() {
+        function nextPage() {
             document.getElementById('page1').classList.add('hidden');
             document.getElementById('page2').classList.remove('hidden');
         }
 
-        function showMeToo() {
-            document.getElementById('enjoy-section').classList.add('hidden');
-            document.getElementById('me-too-msg').classList.remove('hidden');
+        function sayMeToo() {
+            document.getElementById('enjoy-prompt').classList.add('hidden');
+            document.getElementById('me-too-resp').classList.remove('hidden');
         }
 
         window.addEventListener('resize', init);
@@ -209,5 +218,3 @@
     </script>
 </body>
 </html>
-
-            
